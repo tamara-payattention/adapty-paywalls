@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PayAttention × Adapty — Paywall Placements</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F8FAFC;--card:#fff;--border:#E2E8F0;--blue:#2563EB;--navy:#0F172A;--slate:#64748B;--green:#059669;--green-bg:#ECFDF5}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);min-height:100vh;color:var(--navy)}
+.page{max-width:1100px;margin:0 auto;padding:48px 24px 64px}
+.hdr{text-align:center;margin-bottom:40px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:#fff;font-size:11px;font-weight:600;padding:6px 18px;border-radius:100px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:16px}
+.badge svg{width:14px;height:14px}
+h1{font-size:28px;font-weight:700;letter-spacing:-.5px;line-height:1.2}
+.sub{font-size:14px;color:var(--slate);margin-top:8px;line-height:1.6}
+.tabs{display:flex;gap:4px;justify-content:center;margin-bottom:32px;background:var(--border);padding:4px;border-radius:12px;width:fit-content;margin-left:auto;margin-right:auto;flex-wrap:wrap}
+.tab{padding:10px 20px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--slate);transition:all .2s}
+.tab.on{background:var(--card);color:var(--navy);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.tab:hover:not(.on){color:var(--navy)}
+.stabs{display:flex;gap:6px;justify-content:center;margin-bottom:28px}
+.stab{padding:6px 16px;border-radius:8px;font-size:11px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:var(--card);color:var(--slate);transition:all .15s}
+.stab.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.variant{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;opacity:0;animation:fadeUp .4s ease forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:768px){.variant{grid-template-columns:1fr}}
+.info{display:flex;flex-direction:column;gap:16px}
+.tag{font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:1px}
+.title{font-size:20px;font-weight:700;line-height:1.3}
+.desc{font-size:14px;color:var(--slate);line-height:1.7}
+.safety{background:var(--green-bg);border-radius:12px;padding:14px 18px;font-size:13px;color:var(--green);font-weight:500;line-height:1.5;display:flex;gap:8px;align-items:flex-start}
+.safety-icon{flex-shrink:0;width:18px;height:18px;margin-top:1px}
+.mockup-wrap{display:flex;justify-content:center;align-items:flex-start}
+.mockup{border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.12),0 1px 3px rgba(0,0,0,.06)}
+.mockup img{display:block;height:auto;width:320px}
+.mockup.wide img{width:100%;max-width:520px}
+.features{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.feature{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--slate);line-height:1.5}
+.feature-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:6px}
+.ft{margin-top:48px;text-align:center;font-size:12px;color:var(--slate);line-height:1.8;border-top:1px solid var(--border);padding-top:24px}
+.ft strong{color:var(--navy)}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="hdr">
+<div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l2.09 6.26L20.5 9.27l-5 4.87L16.18 22 12 18.27 7.82 22l.68-7.86-5-4.87 6.41-1.01z"/></svg>PayAttention × Adapty</div>
+<h1>Paywall Placement Variants</h1>
+<p class="sub">Real Adapty paywalls with integrated PA Web Paywall button</p>
+</div>
+<div class="tabs" id="tabs"></div>
+<div class="stabs" id="stabs"></div>
+<div id="content"></div>
+<div class="ft">
+<strong>Adapty Web Paywall button</strong> · External browser · SDK binds user profile<br>
+Wording: 'sponsor covers' (not 'free'). Merchant adds the button in Adapty Builder<br>
+PA grants entitlement via Adapty Server API after advertiser payment
+</div>
+</div>
+<script>
+const D=[
+{name:"Premium App",variants:[
+{tag:"PA button below plans",t:"Premium App — hero photo + plans + PA button",
+d:"Vibrant paywall with hero photo. Two plans: 1 year $79.99 / 1 month $9.99. PA Web Paywall button 'Let a sponsor cover this month' with 'PayAttention' label between plans and CTA.",
+safety:"Main CTA 'Buy coins' dominates visually. PA button is a secondary option for users not ready to pay.",
+features:["Hero photo + two pricing plans","PA button between plans and CTA","'PayAttention' label below the button"],
+cls:"wide"}
+]},
+{name:"Productivity App",variants:[
+{tag:"PA button + microcopy",t:"Productivity App — plans + PA button with CTA copy",
+d:"Purple paywall 'Be a fun of yourself'. Features: Boost Productivity, Build Winning Habits, Achieve Your Goals. Monthly $79.99 / Annual $9.99 (SAVE 70%). PA button with microcopy.",
+safety:"PA button is visually separated from plans. Microcopy explains the mechanic — full transparency for the user. CTA 'Continue' remains dominant.",
+features:["Monthly $79.99 / Annual $9.99 (SAVE 70%)","PA button 'Let a sponsor cover this month'","Microcopy: Complete a 2-min action → subscription activates"],
+cls:""}
+]},
+{name:"Benefits App",variants:[
+{tag:"PA button + Subscribe",t:"Benefits App — features list + PA button",
+d:"Dark paywall 'Get more benefits': Percipitations App, Air Quality App, Cross-Device Support. PA button 'Let a sponsor cover this month' with 'PayAttention' label above CTA 'Subscribe Now'.",
+safety:"Green CTA 'Subscribe Now' dominates. PA button is a neutral alternative. Small 'payattention' label — non-distracting.",
+features:["Features list with app icons","PA button above main CTA","'payattention' + 'PayAttention' labels"],
+cls:""}
+]},
+{name:"Business App",variants:[
+{tag:"Toggle OFF",t:"Business App — Toggle sponsor OFF",
+d:"Standard paywall 'Transform every call into actionable insights'. Toggle 'Pay Attention — Let a sponsor cover this month' is OFF. 1 month $2.3/week (Only for $9.99/year). Badge 'Most Popular'.",
+safety:"By default — standard merchant paywall. PA toggle invisible until user activation. Zero cannibalization.",
+features:["Clean paywall with no PA interference","Toggle OFF by default","1 month $2.3/week, badge 'Most Popular'"],
+cls:""},
+{tag:"Toggle ON",t:"Business App — Toggle sponsor ON",
+d:"Toggle ON — plan switches to 1 year 0.99$/week (Only for $79.99/year). 'PAY ATTENTION' in caps. User activates the sponsored plan themselves.",
+safety:"Toggle is OFF by default. User turns it on themselves. Full control — non-intrusive. Plan automatically switches to annual.",
+features:["Toggle ON → plan switches to annual","1 year 0.99$/week ($79.99/year)","'PAY ATTENTION' badge in caps"],
+cls:""}
+]}
+];
+let cT=0,cV=0;
+function render(){
+document.getElementById("tabs").innerHTML=D.map((d,i)=>`<button class="tab ${i===cT?'on':''}" onclick="cT=${i};cV=0;render()">${d.name}</button>`).join("");
+const s=D[cT],el=document.getElementById("stabs");
+if(s.variants.length>1){el.innerHTML=s.variants.map((v,i)=>`<button class="stab ${i===cV?'on':''}" onclick="cV=${i};render()">${v.tag}</button>`).join("");el.style.display="flex"}else{el.style.display="none"}
+const v=s.variants[cV];
+const featHtml=v.features.map(f=>`<div class="feature"><div class="feature-dot"></div>${f}</div>`).join("");
+const mockupHtml=`<div class="mockup-empty" style="border:2px dashed var(--border);border-radius:20px;padding:60px 40px;text-align:center;color:var(--slate);font-size:13px;background:var(--card);min-width:320px">Screenshot coming soon<br><span style="font-size:11px;opacity:.7">Adapty mockup placeholder</span></div>`;
+document.getElementById("content").innerHTML=`<div class="variant" key="${cT}-${cV}"><div class="info"><div class="tag">${v.tag}</div><div class="title">${v.t}</div><div class="desc">${v.d}</div><div class="features">${featHtml}</div><div class="safety"><svg class="safety-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>${v.safety}</div></div><div class="mockup-wrap">${mockupHtml}</div></div>`;
+}
+render();
+</script>
+</body>
+</html>
